@@ -1,0 +1,31 @@
+version: 1.0.{build}
+os: Visual Studio 2015
+branches:
+  only:
+  - nuget
+environment:
+  MYGET_API_KEY:
+    secure: MhkWny3UKd/FHtng/5lG59kxFgTW2YlKqVHYmshtYhteHXKymc92mK9mmPsrR6Yt
+  MYGET_API_USER:
+    secure: KO9YI7mQUn5Avxk2GD0ECw==
+  MYGET_SOURCE:
+    secure: TjA80Nd4DZXk0r9ZXwgLn+0uRauDjygn5xFzB/qWSMBnNB0l4fg3YjYfucjLlo1B
+  MYGET_INTERNAL_SOURCE:
+    secure: TjA80Nd4DZXk0r9ZXwgLn+0uRauDjygn5xFzB/qWSMD9t5ffg9qpMBG+2VdKBtSs
+  MYGET_INTERNAL_API_URL:
+    secure: TjA80Nd4DZXk0r9ZXwgLn+0uRauDjygn5xFzB/qWSMAGug4rK6k/7qitfDzAPSzLecRINM95A2qjVEqXAl2YOw==
+  SLACK_TOKEN:
+    secure: uUlqYrJjlKpB0gfgUVR9NthjJi5bIt5je0h5UTq2uOuv0IoejZLmYsSvNYHw7ggy
+# Build script
+build_script:
+  - ps: .\build.ps1 -Target AppVeyor
+#notifications:
+#- provider: Slack
+#  channel: appveyor
+#  auth_token:
+#    secure: uUlqYrJjlKpB0gfgUVR9NthjJi5bIt5je0h5UTq2uOuv0IoejZLmYsSvNYHw7ggy
+#  on_build_success: true
+#  on_build_failure: true
+#  on_build_status_changed: true
+# Tests
+test: off
